@@ -10,5 +10,14 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.13.3"
-  }
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DM87/expressjs-workshop.git"
+  },
+  "bugs": {
+    "url": "https://github.com/DM87/expressjs-workshop/issues"
+  },
+  "homepage": "https://github.com/DM87/expressjs-workshop#readme"
 }

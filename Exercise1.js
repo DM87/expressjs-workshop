@@ -1,10 +1,10 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
 
+app.get('/hello', function(request, response) {
+    response.send('<H1>Hello World!</H1>');
+});
 
 /* YOU DON'T HAVE TO CHANGE ANYTHING BELOW THIS LINE :) */
 

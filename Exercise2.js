@@ -1,10 +1,11 @@
 var express = require('express');
 var app = express();
 
-app.get('/', function (req, res) {
-  res.send('Hello World!');
-});
 
+app.get('/hello/:str', function(request, response) {
+    var theRequestedString = request.params.str;
+    response.send('Hello ' + theRequestedString + '!');
+})
 
 /* YOU DON'T HAVE TO CHANGE ANYTHING BELOW THIS LINE :) */
 
