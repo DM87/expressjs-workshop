@@ -45,23 +45,18 @@ function createContent (userID, titre, urllink, callback) {
 }
 
 
-Content.findAll({limit: 5, order: 'createdAt DESC'}).then(function(val){
+Content.findAll({limit: 5, order: 'createdAt DESC', include:User}).then(function(val){
     app.get('/', function(request, response) {
         
         var lists = "";
         val.forEach(function(item){
-            lists = lists +  "<li><h2><a href>"+item.title+"</a></h2><p>Created by: "+ item.userId +"</p></li>"
-        })
+            lists = lists +  "<li><h2><a href="+item.url+">"+item.title+"</a></h2><p>Created by: "+ item.user.username +"</p></li>";
+        });
         
-        var finalResult = "<div><ul>"+lists+"</ul></div>"
-        response.send(finalResult)
+        var finalResult = "<div><h1>List of contents</h1><ul>"+lists+"</ul></div>";
+        response.send(finalResult);
     // response.send(JSON.stringify(val));
 });});
 
-var server = app.listen(process.env.PORT, process.env.IP, function () {
-  var host = server.address().address;
-  var port = server.address().port;
-
-  console.log('Example app listening at http://%s:%s', host, port);
-});
+app.listen(process.env.PORT);
 
